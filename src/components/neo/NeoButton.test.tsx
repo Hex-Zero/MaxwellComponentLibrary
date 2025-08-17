@@ -4,7 +4,11 @@ import { NeoButton } from './NeoButton';
 
 describe('NeoButton class mapping', () => {
   test('applies size, shape and variant classes', () => {
-    const { getByRole } = render(<NeoButton variant="raised" size="lg" shape="pill">Test</NeoButton>);
+    const { getByRole } = render(
+      <NeoButton variant="raised" size="lg" shape="pill">
+        Test
+      </NeoButton>,
+    );
     const btn = getByRole('button');
     expect(btn.className).toMatch(/h-12/); // lg height
     expect(btn.className).toMatch(/rounded-full/); // pill

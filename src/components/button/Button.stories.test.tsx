@@ -10,7 +10,7 @@ test('Primary Button story renders with correct text', () => {
   render(
     <ThemeProvider theme={theme}>
       <Button variant="primary">Primary Button</Button>
-    </ThemeProvider>
+    </ThemeProvider>,
   );
   expect(screen.getByRole('button', { name: /primary button/i })).toBeInTheDocument();
 });

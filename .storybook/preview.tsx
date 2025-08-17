@@ -47,7 +47,15 @@ const preview = {
       const theme = themedWithNeo(base);
       return (
         <ThemeProvider theme={theme}>
-          <div style={{ background: theme.colors.background, color: theme.colors.textPrimary, minHeight: '100vh', padding: '1rem', transition: 'background 0.3s ease' }}>
+          <div
+            style={{
+              background: theme.colors.background,
+              color: theme.colors.textPrimary,
+              minHeight: '100vh',
+              padding: '1rem',
+              transition: 'background 0.3s ease',
+            }}
+          >
             <Story />
           </div>
         </ThemeProvider>

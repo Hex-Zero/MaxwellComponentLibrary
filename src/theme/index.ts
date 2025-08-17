@@ -55,9 +55,15 @@ export const appleDark = {
 // Neomorphic surfaces helper (light mode focused) producing raised or inset style
 export const neoSurface = (
   t: Theme,
-  opts: { inset?: boolean; radius?: number; color?: string; distance?: number; blur?: number } = {}
+  opts: { inset?: boolean; radius?: number; color?: string; distance?: number; blur?: number } = {},
 ) => {
-  const { inset = false, radius = t.radii.lg, color = t.colors.background, distance = 6, blur = 12 } = opts;
+  const {
+    inset = false,
+    radius = t.radii.lg,
+    color = t.colors.background,
+    distance = 6,
+    blur = 12,
+  } = opts;
   const shadowColorLight = 'rgba(255,255,255,0.8)';
   const shadowColorDark = 'rgba(0,0,0,0.15)';
   const dir = inset ? 'inset' : '';
@@ -77,7 +83,10 @@ export const themedWithNeo = (t: Theme): ThemeWithNeo => {
   const base: Theme = t; // explicit
   return {
     ...base,
-    mixins: { ...base.mixins, neoSurface: (o?: Parameters<typeof neoSurface>[1]) => neoSurface(base, o) },
+    mixins: {
+      ...base.mixins,
+      neoSurface: (o?: Parameters<typeof neoSurface>[1]) => neoSurface(base, o),
+    },
   };
 };
 export * from './color';

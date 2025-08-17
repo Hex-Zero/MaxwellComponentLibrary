@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+
 import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
 import '../src/styles/neo.css';
@@ -47,9 +48,16 @@ const preview = {
       // Apply body class for external theming hooks
       if (typeof document !== 'undefined') {
         const body = document.body;
-        const classes = ['theme-light','theme-dark','theme-neo-light','theme-neo-dark'];
-        classes.forEach(c => body.classList.remove(c));
-        const cls = sel === 'light' ? 'theme-light' : sel === 'dark' ? 'theme-dark' : sel === 'neo-light' ? 'theme-neo-light' : 'theme-neo-dark';
+        const classes = ['theme-light', 'theme-dark', 'theme-neo-light', 'theme-neo-dark'];
+        classes.forEach((c) => body.classList.remove(c));
+        const cls =
+          sel === 'light'
+            ? 'theme-light'
+            : sel === 'dark'
+              ? 'theme-dark'
+              : sel === 'neo-light'
+                ? 'theme-neo-light'
+                : 'theme-neo-dark';
         body.classList.add(cls);
       }
       return React.createElement(

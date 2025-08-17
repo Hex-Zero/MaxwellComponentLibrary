@@ -1,6 +1,16 @@
 export const radii = { none: 0, sm: 2, md: 4, lg: 8, pill: 9999, full: 99999 };
 export const borderWidths = { none: 0, hairline: 1, thin: 2, thick: 4 };
-export const zIndices = { hide: -1, base: 0, dropdown: 1000, sticky: 1100, overlay: 1200, modal: 1300, popover: 1400, toast: 1500, tooltip: 1600 };
+export const zIndices = {
+  hide: -1,
+  base: 0,
+  dropdown: 1000,
+  sticky: 1100,
+  overlay: 1200,
+  modal: 1300,
+  popover: 1400,
+  toast: 1500,
+  tooltip: 1600,
+};
 export const breakpoints = { xs: 0, sm: 480, md: 768, lg: 1024, xl: 1280, '2xl': 1536 };
 export const spacingUnit = 4; // base 4pt grid
 export type Radii = typeof radii;

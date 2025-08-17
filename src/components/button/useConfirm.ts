@@ -1,7 +1,7 @@
 import React from 'react';
 
 type ClickEl = HTMLButtonElement | HTMLAnchorElement;
- type ClickEvt = React.MouseEvent<ClickEl>;
+type ClickEvt = React.MouseEvent<ClickEl>;
 
 export function useConfirm(
   requireConfirm: boolean | undefined,

@@ -12,7 +12,11 @@ try {
   run('git add .');
   // Create commit message with timestamp
   const msg = `chore(build): storybook build output $(powershell -NoProfile -Command "Get-Date -Format o")`;
-  try { run(`git commit -m "${msg}"`); } catch { globalThis.console?.log('No changes to commit'); }
+  try {
+    run(`git commit -m "${msg}"`);
+  } catch {
+    globalThis.console?.log('No changes to commit');
+  }
   // Push to origin main
   run('git push origin main');
 } catch (err) {
