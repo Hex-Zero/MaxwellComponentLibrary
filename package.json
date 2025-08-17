@@ -18,8 +18,7 @@
     "test:stories": "start-server-and-test storybook http://localhost:6006 test:stories:runner",
     "test:stories:runner": "test-storybook --ci --url http://localhost:6006",
     "test:stories:watch": "test-storybook --watch",
-  "test": "pnpm run lint && pnpm run type-check && jest && pnpm run test:stories:runner",
-  "chromatic": "chromatic --exit-zero-on-changes --auto-accept-changes --only-changed"
+  "test": "pnpm run lint && pnpm run type-check && jest && pnpm run test:stories:runner"
   },
   "keywords": [],
   "author": "",
@@ -49,7 +48,6 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "autoprefixer": "^10.4.21",
-    "chromatic": "^13.1.3",
     "css-loader": "^7.1.2",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
