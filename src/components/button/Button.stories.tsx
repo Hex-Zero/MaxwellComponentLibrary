@@ -23,6 +23,5 @@ export const Danger: Story = { args: { variant: 'danger', children: 'Delete' } }
 export const Success: Story = { args: { variant: 'success', children: 'Success' } };
 export const Outline: Story = { args: { variant: 'outline', children: 'Outline' } };
 export const Soft: Story = { args: { variant: 'soft', children: 'Soft' } };
-export const Neo: Story = { args: { children: 'Neo Surface', variant: 'neo', shape: 'pill' } };
 
 export const Playground: Story = { args: { children: 'Playground' } };

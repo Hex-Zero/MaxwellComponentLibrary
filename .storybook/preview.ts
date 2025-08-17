@@ -4,7 +4,6 @@ import { ThemeProvider } from 'styled-components';
 
 import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
-import '../src/styles/neo.css';
 
 const preview: Preview = {
   globalTypes: {
@@ -17,8 +16,6 @@ const preview: Preview = {
         items: [
           { value: 'light', title: 'Light' },
           { value: 'dark', title: 'Dark' },
-          { value: 'neo-light', title: 'Neo Light' },
-          { value: 'neo-dark', title: 'Neo Dark' },
         ],
         dynamicTitle: true,
       },
@@ -29,7 +26,7 @@ const preview: Preview = {
     docs: {
       story: {
         inline: true,
-        height: '96px',
+        height: '72px',
       },
     },
     controls: {
@@ -40,8 +37,6 @@ const preview: Preview = {
       list: [
         { name: 'Light', class: 'theme-light', color: '#ffffff' },
         { name: 'Dark', class: 'theme-dark', color: '#111827' },
-        { name: 'Neo Light', class: 'theme-neo-light', color: '#e9edf3' },
-        { name: 'Neo Dark', class: 'theme-neo-dark', color: '#1c1f24' },
       ],
     },
   },
@@ -57,23 +52,15 @@ const preview: Preview = {
       const sel = ctx.globals.themeMode as string;
       const isDark = sel.includes('dark');
       const base = isDark ? appleDark : appleLight;
-      const neo = sel.startsWith('neo');
-      const theme = themedWithNeo(base);
-      const background = neo ? 'var(--neo-bg)' : theme.colors.background;
+  const theme = themedWithNeo(base);
+  const background = theme.colors.background;
       const isDocs = ctx.viewMode === 'docs';
       // Apply body class for external theming hooks
       if (typeof document !== 'undefined') {
         const body = document.body;
-        const classes = ['theme-light', 'theme-dark', 'theme-neo-light', 'theme-neo-dark'];
+  const classes = ['theme-light', 'theme-dark'];
         classes.forEach((c) => body.classList.remove(c));
-        const cls =
-          sel === 'light'
-            ? 'theme-light'
-            : sel === 'dark'
-              ? 'theme-dark'
-              : sel === 'neo-light'
-                ? 'theme-neo-light'
-                : 'theme-neo-dark';
+  const cls = sel === 'light' ? 'theme-light' : 'theme-dark';
         body.classList.add(cls);
       }
       return React.createElement(
