@@ -1,3 +1,4 @@
+import type { Preview } from '@storybook/react';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
@@ -5,7 +6,7 @@ import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
 import '../src/styles/neo.css';
 
-const preview = {
+const preview: Preview = {
   globalTypes: {
     themeMode: {
       name: 'Theme',
@@ -24,6 +25,13 @@ const preview = {
     },
   },
   parameters: {
+    layout: 'centered',
+    docs: {
+      story: {
+        inline: true,
+        height: '96px',
+      },
+    },
     controls: {
       matchers: { color: /(background|color)$/i, date: /Date$/i },
     },
@@ -38,7 +46,9 @@ const preview = {
     },
   },
   decorators: [
-    (Story: any, ctx: any) => {
+    // Tight wrapper to keep stories compact in both Canvas & Docs
+    (Story) => React.createElement('div', { style: { display: 'inline-block', padding: 12 } }, React.createElement(Story, null)),
+  (Story: React.ComponentType, ctx: { globals: Record<string, unknown> }) => {
       const sel = ctx.globals.themeMode as string;
       const isDark = sel.includes('dark');
       const base = isDark ? appleDark : appleLight;
