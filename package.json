@@ -19,7 +19,7 @@
     "test:stories": "start-server-and-test storybook http://localhost:6006 test:stories:runner",
     "test:stories:runner": "test-storybook --ci --url http://localhost:6006",
     "test:stories:watch": "test-storybook --watch",
-  "test": "pnpm run lint && pnpm run type-check && jest && pnpm run test:stories:runner"
+    "test": "pnpm run lint && pnpm run type-check && jest && pnpm run test:stories:runner"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +31,7 @@
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
+    "@storybook/addon-controls": "^9.0.8",
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
     "@storybook/addon-test": "0.0.0-pr-30727-sha-fe615277",
