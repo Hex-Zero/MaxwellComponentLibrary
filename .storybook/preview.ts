@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
+import '../src/styles/neo.css';
 
 const preview = {
   globalTypes: {
@@ -58,8 +59,8 @@ const preview = {
               transition: 'background 0.3s ease',
             },
           },
-          React.createElement(Story, null)
-        )
+          React.createElement(Story, null),
+        ),
       );
     },
   ],

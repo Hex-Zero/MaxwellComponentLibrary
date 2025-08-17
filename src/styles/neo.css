@@ -1,0 +1,3 @@
+/* Global variables and base background for Neo buttons */
+:root { --neo-bg:#e9edf3; --neo-shadow:#bec7d8; }
+body { background: var(--neo-bg); }
