@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { Button } from './Button';
 import type { ButtonProps } from './types';
 
+// React referenced to ensure availability if classic runtime is used
+void React;
 const meta: Meta<ButtonProps> = {
   title: 'Components/Button',
   component: Button,

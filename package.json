@@ -7,7 +7,6 @@
   "scripts": {
     "clean": "powershell -NoProfile -Command Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue",
     "type-check": "tsc --noEmit",
-    "build:lib": "npm run clean && tsc -p tsconfig.json",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,css,json,md}\"",
     "start": "storybook dev -p 6006",

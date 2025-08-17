@@ -1,10 +1,9 @@
-import type { Preview } from '@storybook/react-webpack5';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
 
-const preview: Preview = {
+const preview = {
   globalTypes: {
     themeMode: {
       name: 'Theme',
@@ -41,16 +40,26 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story, ctx) => {
-      const mode = ctx.globals.themeMode as 'light' | 'dark';
+    (Story: any, ctx: any) => {
+      const mode = ctx.globals.themeMode === 'dark' ? 'dark' : 'light';
       const base = mode === 'dark' ? appleDark : appleLight;
       const theme = themedWithNeo(base);
-      return (
-        <ThemeProvider theme={theme}>
-          <div style={{ background: theme.colors.background, color: theme.colors.textPrimary, minHeight: '100vh', padding: '1rem', transition: 'background 0.3s ease' }}>
-            <Story />
-          </div>
-        </ThemeProvider>
+      return React.createElement(
+        ThemeProvider,
+        { theme },
+        React.createElement(
+          'div',
+          {
+            style: {
+              background: theme.colors.background,
+              color: theme.colors.textPrimary,
+              minHeight: '100vh',
+              padding: '1rem',
+              transition: 'background 0.3s ease',
+            },
+          },
+          React.createElement(Story, null)
+        )
       );
     },
   ],
