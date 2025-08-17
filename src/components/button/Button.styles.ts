@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import styled, { css } from 'styled-components';
 
 import type { ThemeWithNeo } from '../../theme';

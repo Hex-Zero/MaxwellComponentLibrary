@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 // Design tokens for the Maxwell Component Library
 // Structured for easy export to CSS variables or usage in styled-components theme.
 

@@ -1,4 +1,4 @@
-import { within } from '@storybook/test';
+import { within } from 'storybook/test';
 
 // Using Storybook test-runner style: exported tests rely on injected 'canvasElement'
 

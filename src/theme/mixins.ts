@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { css } from 'styled-components';
 
 import type { Theme } from './index';
