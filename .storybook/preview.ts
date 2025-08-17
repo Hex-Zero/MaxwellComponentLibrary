@@ -26,7 +26,7 @@ const preview: Preview = {
     docs: {
       story: {
         inline: true,
-        height: '72px',
+        height: '70px',
       },
     },
     controls: {
@@ -52,15 +52,15 @@ const preview: Preview = {
       const sel = ctx.globals.themeMode as string;
       const isDark = sel.includes('dark');
       const base = isDark ? appleDark : appleLight;
-  const theme = themedWithNeo(base);
-  const background = theme.colors.background;
+      const theme = themedWithNeo(base);
+      const background = theme.colors.background;
       const isDocs = ctx.viewMode === 'docs';
       // Apply body class for external theming hooks
       if (typeof document !== 'undefined') {
         const body = document.body;
-  const classes = ['theme-light', 'theme-dark'];
+        const classes = ['theme-light', 'theme-dark'];
         classes.forEach((c) => body.classList.remove(c));
-  const cls = sel === 'light' ? 'theme-light' : 'theme-dark';
+        const cls = sel === 'light' ? 'theme-light' : 'theme-dark';
         body.classList.add(cls);
       }
       return React.createElement(
