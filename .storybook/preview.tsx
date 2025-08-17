@@ -1,10 +1,10 @@
-import type { Preview } from '@storybook/react-webpack5';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+
 import { appleLight, appleDark, themedWithNeo } from '../src/theme';
 import '../src/styles.css';
 
-const preview: Preview = {
+const preview = {
   globalTypes: {
     themeMode: {
       name: 'Theme',
@@ -54,6 +54,6 @@ const preview: Preview = {
       );
     },
   ],
-};
+} as const;
 
 export default preview;
