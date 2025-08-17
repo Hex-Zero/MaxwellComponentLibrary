@@ -27,6 +27,9 @@ importers:
       '@storybook/addon-test':
         specifier: 0.0.0-pr-30727-sha-fe615277
         version: 0.0.0-pr-30727-sha-fe615277(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(storybook@8.6.14(prettier@3.6.2))
+      '@storybook/addon-themes':
+        specifier: ^9.1.2
+        version: 9.1.2(storybook@8.6.14(prettier@3.6.2))
       '@storybook/addon-webpack5-compiler-swc':
         specifier: ^2.0.0
         version: 2.1.0(webpack@5.101.2(@swc/core@1.13.3)(esbuild@0.25.9))
@@ -850,6 +853,11 @@ packages:
         optional: true
       vitest:
         optional: true
+
+  '@storybook/addon-themes@9.1.2':
+    resolution: {integrity: sha512-dpWCx0IpKKFGEuOe2u8cUD2ShWMaE6Keh0zkM1gP8jx5gL8lLv9uhRHaZcQamwnG3BgnnKFgArODNxewsRSFfA==}
+    peerDependencies:
+      storybook: ^9.1.2
 
   '@storybook/addon-webpack5-compiler-swc@2.1.0':
     resolution: {integrity: sha512-mCzNtuqY8LJqj/2vW12o3S/UujRSBFstxRqhOUErrbbOBRyM6RgcPuvytDdRv1npFi8OaKOIz3SoJBT/EtAN3A==}
@@ -5615,6 +5623,11 @@ snapshots:
     transitivePeerDependencies:
       - react
       - react-dom
+
+  '@storybook/addon-themes@9.1.2(storybook@8.6.14(prettier@3.6.2))':
+    dependencies:
+      storybook: 8.6.14(prettier@3.6.2)
+      ts-dedent: 2.2.0
 
   '@storybook/addon-webpack5-compiler-swc@2.1.0(webpack@5.101.2(@swc/core@1.13.3)(esbuild@0.25.9))':
     dependencies:

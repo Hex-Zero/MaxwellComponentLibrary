@@ -33,6 +33,7 @@
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
     "@storybook/addon-test": "0.0.0-pr-30727-sha-fe615277",
+    "@storybook/addon-themes": "^9.1.2",
     "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
     "@storybook/react-webpack5": "^8.4.7",
     "@storybook/test": "^8.6.14",
