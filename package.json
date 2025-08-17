@@ -10,15 +10,15 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,css,json,md}\"",
     "start": "storybook dev -p 6006",
-  "build": "storybook build && pnpm postbuild:autocommit",
-  "postbuild:autocommit": "node scripts/autocommit.mjs",
-  "storybook:build-static": "rimraf storybook-static && storybook build",
-  "storybook:serve-static": "npx http-server storybook-static -p 6006",
-  "storybook:test-static": "pnpm run storybook:build-static && start-server-and-test storybook:serve-static http://localhost:6006 test:stories:runner",
+    "build": "storybook build && pnpm postbuild:autocommit",
+    "postbuild:autocommit": "node scripts/autocommit.mjs",
+    "storybook:build-static": "rimraf storybook-static && storybook build",
+    "storybook:serve-static": "npx http-server storybook-static -p 6006",
+    "storybook:test-static": "pnpm run storybook:build-static && start-server-and-test storybook:serve-static http://localhost:6006 test:stories:runner",
     "test:stories": "start-server-and-test storybook http://localhost:6006 test:stories:runner",
-  "test:stories:runner": "test-storybook --ci --url http://localhost:6006",
+    "test:stories:runner": "test-storybook --ci --url http://localhost:6006",
     "test:stories:watch": "test-storybook --watch",
-    "test": "pnpm run lint && pnpm run type-check && jest"
+    "test": "pnpm run lint && pnpm run type-check && jest && pnpm run test:stories:runner"
   },
   "keywords": [],
   "author": "",
@@ -26,12 +26,13 @@
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
     "react": "^19.1.1",
-  "react-dom": "^19.1.1",
-  "styled-components": "^6.1.19"
+    "react-dom": "^19.1.1",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/addon-test": "0.0.0-pr-30727-sha-fe615277",
     "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
     "@storybook/react-webpack5": "^8.4.7",
     "@storybook/test": "^8.6.14",
@@ -42,6 +43,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
+    "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "autoprefixer": "^10.4.21",
@@ -65,7 +67,6 @@
     "style-loader": "^4.0.0",
     "tailwindcss": "^4.1.12",
     "ts-jest": "^29.4.1",
-  "typescript": "^5.9.2",
-  "@types/styled-components": "^5.1.34"
+    "typescript": "^5.9.2"
   }
 }
