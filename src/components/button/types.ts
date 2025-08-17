@@ -7,7 +7,8 @@ export type ButtonVariant =
   | 'danger'
   | 'success'
   | 'outline'
-  | 'soft';
+  | 'soft'
+  | 'neo';
 export type ButtonSize = '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonShape = 'rounded' | 'pill' | 'square';
 
@@ -19,7 +20,6 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   shape?: ButtonShape;
-  neo?: boolean;
   asLink?: boolean;
   href?: string; // if provided renders an anchor element
   iconOnly?: boolean; // renders only an icon (uses leftIcon)

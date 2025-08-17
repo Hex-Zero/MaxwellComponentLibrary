@@ -17,13 +17,13 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = { args: { variant: 'primary', children: 'Primary Button', neo: true } };
-export const Secondary: Story = { args: { variant: 'secondary', children: 'Secondary Button', neo: true } };
-export const Ghost: Story = { args: { variant: 'ghost', children: 'Ghost Button', neo: true } };
-export const Danger: Story = { args: { variant: 'danger', children: 'Delete', neo: true } };
-export const Success: Story = { args: { variant: 'success', children: 'Success', neo: true } };
-export const Outline: Story = { args: { variant: 'outline', children: 'Outline', neo: true } };
-export const Soft: Story = { args: { variant: 'soft', children: 'Soft', neo: true } };
+export const Primary: Story = { args: { variant: 'primary', children: 'Primary Button' } };
+export const Secondary: Story = { args: { variant: 'secondary', children: 'Secondary Button' } };
+export const Ghost: Story = { args: { variant: 'ghost', children: 'Ghost Button' } };
+export const Danger: Story = { args: { variant: 'danger', children: 'Delete' } };
+export const Success: Story = { args: { variant: 'success', children: 'Success' } };
+export const Outline: Story = { args: { variant: 'outline', children: 'Outline' } };
+export const Soft: Story = { args: { variant: 'soft', children: 'Soft' } };
 
 export const Sizes: Story = {
   render: (args) => (
@@ -59,25 +59,22 @@ export const WithIcons: Story = {
 
 export const Loading: Story = { args: { loading: true, children: 'Loading...' } };
 
-export const Neo: Story = { args: { neo: true, children: 'Neo Surface', variant: 'soft', shape: 'pill' } };
+export const Neo: Story = { args: { children: 'Neo Surface', variant: 'neo', shape: 'pill' } };
 
 export const AllVariants: Story = {
-  args: { neo: true },
-  render: (args) => {
-    const variants: ButtonProps['variant'][] = ['primary','secondary','ghost','danger','success','outline','soft'];
+  render: () => {
+    const variants: ButtonProps['variant'][] = ['primary','secondary','ghost','danger','success','outline','soft','neo'];
     return (
-      <div style={{ display: 'grid', gap: '0.5rem', gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))', maxWidth: 560 }}>
+      <div style={{ display: 'grid', gap: '0.5rem', gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))', maxWidth: 640 }}>
         {variants.map(v => (
-          <Button key={v} variant={v} neo={args.neo}>{v}</Button>
+          <Button key={v} variant={v}>{v}</Button>
         ))}
       </div>
     );
   },
 };
 
-export const IconOnly: Story = {
-  args: { leftIcon: <span aria-hidden>🔔</span>, children: 'Notifications', iconOnly: true, variant: 'primary', neo: true },
-};
+export const IconOnly: Story = { args: { leftIcon: <span aria-hidden>🔔</span>, children: 'Notifications', iconOnly: true, variant: 'primary' } };
 
 export const AsLink: Story = {
   args: { asLink: true, href: 'https://example.com', children: 'External Link', variant: 'outline' },
@@ -93,7 +90,7 @@ export const LoadingSkeleton: Story = { args: { loading: true, loadingStyle: 'sk
 
 export const LoadingProgress: Story = { args: { loading: true, loadingStyle: 'progress', progress: 0.6, children: 'Uploading', variant: 'primary' } };
 
-export const ConfirmDestructive: Story = { args: { children: 'Delete', variant: 'danger', requireConfirm: true, confirmLabel: 'Sure?', neo: false } };
+export const ConfirmDestructive: Story = { args: { children: 'Delete', variant: 'danger', requireConfirm: true, confirmLabel: 'Sure?' } };
 
 export const NewSizes: Story = {
   render: (args) => (

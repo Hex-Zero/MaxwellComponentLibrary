@@ -16,10 +16,9 @@ export const sizeStyles: Record<ButtonSize, ReturnType<typeof css>> = {
   xl: css`font-size: 20px; padding: 14px 28px;`,
 };
 
-export const variantStyles = (t: ThemeWithNeo, v: ButtonVariant, neo?: boolean) => {
+export const variantStyles = (t: ThemeWithNeo, v: ButtonVariant) => {
   const c = t.colors;
-  const neoInset = neo && t.mixins.neoSurface ? t.mixins.neoSurface({ inset: false }) : css``;
-  const base = css`color:${c.textPrimary}; ${neoInset}`;
+  const base = css`color:${c.textPrimary};`;
   const dynamic = (bg: string, styles: string) => {
     const txt = getAccessiblePair(bg, t);
     return css`${base} background:${bg}; color:${txt}; ${styles}`;
@@ -43,6 +42,11 @@ export const variantStyles = (t: ThemeWithNeo, v: ButtonVariant, neo?: boolean) 
       const txt = getAccessiblePair(bg, t);
       return css`${base} background:linear-gradient(145deg, ${c.backgroundAlt}, ${c.background}); border:1px solid ${c.border}; color:${txt};`;
     }
+    case 'neo': {
+      // Neomorphic style using theme neoSurface mixin
+      const neoBase = t.mixins.neoSurface ? t.mixins.neoSurface({ radius: 8 }) : css``;
+      return css`${base} background:${c.background}; ${neoBase};`;
+    }
     default:
       return base;
   }
@@ -54,7 +58,7 @@ export const shapeStyles: Record<ButtonShape, ReturnType<typeof css>> = {
   square: css`border-radius: 4px;`,
 };
 
-export const StyledButton = styled.button<Required<Pick<ButtonProps, 'fullWidth' | 'size' | 'variant' | 'shape'>> & Pick<ButtonProps,'neo'>>`
+export const StyledButton = styled.button<Required<Pick<ButtonProps, 'fullWidth' | 'size' | 'variant' | 'shape'>>>`
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -66,10 +70,10 @@ export const StyledButton = styled.button<Required<Pick<ButtonProps, 'fullWidth'
   user-select: none;
   line-height: 1.2;
   ${(p) => sizeStyles[p.size]};
-  ${(p) => variantStyles(p.theme as ThemeWithNeo, p.variant, p.neo)};
+  ${(p) => variantStyles(p.theme as ThemeWithNeo, p.variant)};
   ${(p) => shapeStyles[p.shape]};
   width: ${(p) => (p.fullWidth ? '100%' : 'auto')};
-  ${(p) => p.neo && (p.theme as ThemeWithNeo).mixins.neoSurface && (p.theme as ThemeWithNeo).mixins.neoSurface({ radius: p.shape === 'pill' ? 9999 : 8 })};
+  ${(p) => p.variant === 'neo' && (p.theme as ThemeWithNeo).mixins.neoSurface && (p.theme as ThemeWithNeo).mixins.neoSurface({ radius: p.shape === 'pill' ? 9999 : 8 })};
   transition: transform ${(p) => p.theme.transitions.fast}, box-shadow ${(p) => p.theme.transitions.base}, background ${(p) => p.theme.transitions.fast}, color ${(p) => p.theme.transitions.fast};
   &:active { transform: translateY(1px); }
   &[data-elevated='true'] { box-shadow: ${(p) => p.theme.elevation.md}; }

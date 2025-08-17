@@ -12,7 +12,6 @@ export const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
   shape = 'rounded',
-  neo = false,
   asLink = false,
   href,
   iconOnly = false,
@@ -57,7 +56,6 @@ export const Button: React.FC<ButtonProps> = ({
       disabled={Tag !== 'a' ? isDisabled : undefined}
       aria-disabled={Tag === 'a' ? isDisabled : undefined}
       shape={shape}
-      neo={neo}
       data-elevated={elevated ? 'true' : undefined}
       aria-busy={loading || undefined}
       aria-pressed={ariaPressed}
