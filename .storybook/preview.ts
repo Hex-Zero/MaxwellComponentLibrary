@@ -47,14 +47,20 @@ const preview: Preview = {
   },
   decorators: [
     // Tight wrapper to keep stories compact in both Canvas & Docs
-    (Story) => React.createElement('div', { style: { display: 'inline-block', padding: 12 } }, React.createElement(Story, null)),
-  (Story: React.ComponentType, ctx: { globals: Record<string, unknown> }) => {
+    (Story) =>
+      React.createElement(
+        'div',
+        { style: { display: 'inline-block', padding: 12 } },
+        React.createElement(Story, null),
+      ),
+    (Story: React.ComponentType, ctx: { globals: Record<string, unknown>; viewMode?: string }) => {
       const sel = ctx.globals.themeMode as string;
       const isDark = sel.includes('dark');
       const base = isDark ? appleDark : appleLight;
       const neo = sel.startsWith('neo');
       const theme = themedWithNeo(base);
       const background = neo ? 'var(--neo-bg)' : theme.colors.background;
+      const isDocs = ctx.viewMode === 'docs';
       // Apply body class for external theming hooks
       if (typeof document !== 'undefined') {
         const body = document.body;
@@ -79,8 +85,9 @@ const preview: Preview = {
             style: {
               background,
               color: theme.colors.textPrimary,
-              minHeight: '100vh',
-              padding: '1rem',
+              // Only force full viewport height in canvas mode; keep docs inline stories compact
+              minHeight: isDocs ? undefined : '100vh',
+              padding: isDocs ? 0 : '1rem',
               transition: 'background 0.3s ease',
             },
           },
