@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component layer additions */
+@layer components {
+  .mxl-btn-base {
+    @apply font-medium rounded px-4 py-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .mxl-btn-primary {
+    @apply mxl-btn-base bg-brand text-white hover:bg-brand-dark;
+  }
+  .mxl-btn-secondary {
+    @apply mxl-btn-base bg-gray-100 text-gray-900 border border-gray-300 hover:bg-gray-200;
+  }
+  .mxl-btn-ghost {
+    @apply mxl-btn-base bg-transparent text-brand hover:bg-brand/10;
+  }
+}

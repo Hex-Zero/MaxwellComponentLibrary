@@ -1,13 +1,27 @@
 import React from 'react';
-import './button.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost';
+  fullWidth?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ variant = 'primary', children, ...rest }) => {
+const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
+  primary: 'mxl-btn-primary',
+  secondary: 'mxl-btn-secondary',
+  ghost: 'mxl-btn-ghost',
+};
+
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  children,
+  className = '',
+  fullWidth = false,
+  ...rest
+}) => {
+  const variantClass = variantClasses[variant];
+  const widthClass = fullWidth ? 'w-full justify-center' : '';
   return (
-    <button className={`mxl-btn mxl-btn--${variant}`} {...rest}>
+    <button className={`${variantClass} inline-flex items-center gap-2 ${widthClass} ${className}`.trim()} {...rest}>
       {children}
     </button>
   );

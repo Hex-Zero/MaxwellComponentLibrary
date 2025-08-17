@@ -20,6 +20,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'import/order': [ 'warn', { 'newlines-between': 'always', groups: ['builtin','external','internal','parent','sibling','index'], alphabetize: { order: 'asc', caseInsensitive: true } } ],
-    '@typescript-eslint/explicit-module-boundary-types': 'off'
+  '@typescript-eslint/explicit-module-boundary-types': 'off',
+  // Enforce small focused files
+  'max-lines': [ 'error', { max: 95, skipBlankLines: true, skipComments: true } ]
   }
 };
