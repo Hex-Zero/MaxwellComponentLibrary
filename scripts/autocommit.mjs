@@ -3,7 +3,9 @@ import { execSync } from 'node:child_process';
 // no fs needed currently
 
 function run(cmd, opts = {}) {
-  return execSync(cmd, { stdio: 'pipe', encoding: 'utf8', ...opts }).trim();
+  const result = execSync(cmd, { stdio: 'pipe', encoding: 'utf8', ...opts });
+  if (result == null) return '';
+  return typeof result === 'string' ? result.trim() : result.toString('utf8').trim();
 }
 
 try {
@@ -20,8 +22,9 @@ try {
   const postAdd = run('git diff --cached --name-only');
   if (!postAdd) { globalThis.console?.log('No staged changes'); globalThis.process?.exit(0); }
   const msg = `chore(build): storybook build ${new Date().toISOString()}`;
-  try { run(`git commit -m "${msg}"`, { stdio: 'inherit' }); } catch { globalThis.console?.log('Nothing to commit'); }
-  run('git push origin HEAD', { stdio: 'inherit' });
+  // For commit & push we don't need captured output; separate execSync without trim handling
+  try { execSync(`git commit -m "${msg}"`, { stdio: 'inherit' }); } catch { globalThis.console?.log('Nothing to commit'); }
+  try { execSync('git push origin HEAD', { stdio: 'inherit' }); } catch (e) { globalThis.console?.error('Push failed (non-fatal):', e?.message || e); }
 } catch (err) {
   globalThis.console?.error('autocommit failed (non-fatal):', err && err.message ? err.message : err);
   globalThis.process?.exit(0);
