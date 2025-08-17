@@ -29,16 +29,7 @@ const preview: Preview = {
         height: '70px',
       },
     },
-    controls: {
-      matchers: { color: /(background|color)$/i, date: /Date$/i },
-    },
-    themes: {
-      default: 'Light',
-      list: [
-        { name: 'Light', class: 'theme-light', color: '#ffffff' },
-        { name: 'Dark', class: 'theme-dark', color: '#111827' },
-      ],
-    },
+    controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
   },
   decorators: [
     // Tight wrapper to keep stories compact in both Canvas & Docs
