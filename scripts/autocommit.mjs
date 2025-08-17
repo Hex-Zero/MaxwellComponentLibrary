@@ -11,16 +11,10 @@ function run(cmd, opts = {}) {
 try {
   run('git rev-parse --is-inside-work-tree');
 
-  // Determine changed (staged+unstaged) files excluding storybook-static
+  // Determine any changed (staged+unstaged) files (including storybook-static)
   const status = run('git status --porcelain');
   if (!status) {
     globalThis.console?.log('No changes');
-    globalThis.process?.exit(0);
-  }
-  const lines = status.split(/\r?\n/).filter(Boolean);
-  const buildOnly = lines.every((l) => l.match(/storybook-static\//));
-  if (buildOnly) {
-    globalThis.console?.log('Only build artifacts changed; skipping commit');
     globalThis.process?.exit(0);
   }
 
