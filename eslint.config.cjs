@@ -11,7 +11,7 @@ module.exports = [
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['dist/**', 'storybook-static/**', 'node_modules/**'],
+  ignores: ['dist/**', 'storybook-static/**', 'node_modules/**', '.storybook/test-runner.js'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -19,7 +19,7 @@ module.exports = [
         sourceType: 'module',
         ecmaFeatures: { jsx: true }
       },
-      globals: require('globals').browser
+  globals: { ...require('globals').browser, ...require('globals').node, ...require('globals').jest }
     },
     settings: { react: { version: 'detect' }, 'import/resolver': { typescript: {} } },
     plugins: {
