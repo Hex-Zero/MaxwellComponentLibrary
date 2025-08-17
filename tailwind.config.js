@@ -3,17 +3,17 @@ module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{js,ts,jsx,tsx,mdx}',
-    './.storybook/**/*.{js,ts,jsx,tsx}'
+    './.storybook/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
         brand: {
           DEFAULT: '#2563eb',
-          dark: '#1d4ed8'
-        }
-      }
-    }
+          dark: '#1d4ed8',
+        },
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };

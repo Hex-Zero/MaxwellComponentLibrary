@@ -21,7 +21,10 @@ export const Button: React.FC<ButtonProps> = ({
   const variantClass = variantClasses[variant];
   const widthClass = fullWidth ? 'w-full justify-center' : '';
   return (
-    <button className={`${variantClass} inline-flex items-center gap-2 ${widthClass} ${className}`.trim()} {...rest}>
+    <button
+      className={`${variantClass} inline-flex items-center gap-2 ${widthClass} ${className}`.trim()}
+      {...rest}
+    >
       {children}
     </button>
   );
