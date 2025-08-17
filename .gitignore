@@ -1,0 +1,78 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+/dist/
+/build/
+/storybook-static/
+/dist-storybook/
+
+# Storybook cache & temp
+.sb-cache/
+.storybook-out/
+node_modules/.cache/
+.tmp/
+.temp/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage & reports
+coverage/
+reports/
+
+# Environment variables
+.env
+.env.*.local
+!.env.example
+
+# IDE & editor settings
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Lint / formatter cache
+.eslintcache
+.prettier-cache
+
+# Package manager caches
+.pnpm-store/
+.yarn/*
+.yarn-cache/
+.npm/
+
+# Misc
+*.orig
+*.rej
+*.bak
+*~
+
+# Tooling
+.turbo/
+.parcel-cache/
+.vercel/
+.netlify/
+
+# Optional: lock files (uncomment if you choose not to commit them)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
